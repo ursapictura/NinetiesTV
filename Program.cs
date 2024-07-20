@@ -188,7 +188,10 @@ static string AllNamesWithCommas(List<Show> shows)
 // 23. Do the same as above, but put the word "and" between the second-to-last and last show name.
 static string AllNamesWithCommasPlsAnd(List<Show> shows)
 {
-    throw new NotImplementedException();
+    List<string> showNames = shows.Select(s => s.Name).ToList();
+    showNames.Remove(showNames.Last());
+    string namesList = string.Join(", ", showNames);
+    return namesList += ", and " + showNames.Last();
 }
 
 
